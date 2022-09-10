@@ -1,0 +1,50 @@
+Rappelons les buts du cours:
+But1: changer la réalisation sans changer le code client (abstraction via encapsulation)
+But2: ajouter des réalisations en modificant que les parties code concernées (varier les implémentations et choix à l'utilisateur)
+=>Abstraction(interface) / Encapsulation(portée de données)
+Objet et encapsulation(PARTIE 1)
+Objet: entite d'encapsulation avec des attributs forcément privées pour respecter l'encapsulation, point de départ de l'éxécution et lien a-un si une instance dans une autre pour permettre à un concept de se fournir un service autre que ses services (méthodes d'instances)
+Classe: type en C, objet via instanciation, constructeur sans type de retour avec le même nom, static importance key word, attributs private/public/rien dans les accolades(portée de let dans JSNODE)
+Encapsulation: Masquage de données via ce qu'on a dit sur les attributs des objets en JAVA et séparer réalisation/utilisation car l'utilisation permet d'avoir des infos sans pour autant y pouvoir y acceder(partie réalisation).
+REPETONS:
+=>la factorisation du code avec le lien a-un permet de ne pas repeter ce qu'une classe fait pour instancier une classe utile au sein d'une classe,non valable pour les constructeurs ; overloading..
+=>objet/classe(concrete;abstraite;interface)/portée des données(private;public;rien)
+NOW: Variables et Méthodes de classe::
+4.1.Variable de classe:
+COMMENT SE LIBERER DE LA MANIPULATION QUE DES CLASSES?
+(methode main, flux standards d'erreurs,etc...)
+=>DEJA VU: mot cle static peut en etre une option..
+une variable statique est definie dans une zone memoire souvent interieure fixe. C'est pour cela que le main est declare en static cela permet de rentrer dedans en tant que classe statique (variable de méthode relative au fichier.class) et de faire ce qui faut faire.
+MEME SI CEST UNE CLASSE PAS UN OBJET(exemple de point d'entree).
+Rq(qu'on va voir par la suite):
+un import static java.lang.Math.* permet d'ecrire directement PI au lieu de java.lang.Math.PI dans le code.
+Le mot static est fort et permet un certain nombre de trucs entre autres de pouvoir faire des trucs au sein d'une class fichier depuis le main cad. que l'acces c'est fait uniquement par des classes declarees en statique.!!!
+TRES IMPORTANT<<<..\\\
+4.3.Statut de la classe en JAVA:
+Dans le modèle objet, les objets sont les seules entités d'éxécution. Ce sont des équivalents de modules en C.
+=>Chaque classe java est une instance de java.lang.Class.
+=>Est representee par son fichier unique .class: System.out.println(tec.EtatPassager.class).((dans la classe;méthode))
+=>Donc elle contient des methodes utiles: getFields,getMethods,getSuperClass(),getConstructors ; forName(String) ; newInstance();etc...
+et voilà.
+Class c
+c.getMethods()
+de type tableau dont chaque element est detype:
+java.lang.reflect.Method
+donc voilà si on veut faire m.invoke(c.newInstance) pour appeller la méthode m sur une instance dont un constructeur n'a pas de parametres.
+Bibliotheque a retenir:
+java.lang.reflect.Method
+m.getName.startsWith("??")
+m.invoke(c.newInstance) 
+avec c de type Class.
+Ca pourrait etre une methode generique pour toutes les classes dans notre FICHIER.
+avec throws Exception on pourrait lancer dans le main via:
+Lancertests.lancer(TestPorteCHarniere.class) avec lancer la fonction globale definie et LancerTests la class au sein ou on a defini la methode en question.
+
+
+
+
+FIN: Objet en Encapsulation.
+FIN: But de séparer réalisation et code client via l'encapsulation et la POO son rôle ici dans la mise en place d'un cadre modulaire comme les propriétés hiéarchiques de JSNODE ou sur le C, compréhension des mécanismes de la POO et de son idée mère.
+SUIVI:Substitution d'objets(reliage but2: ajout de réalisation en modificant que la partie réalisation concernée (laisser les tests intacts)).
+ 
+
