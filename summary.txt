@@ -1,0 +1,60 @@
+PRELUDE DU COURS:
+Le programme fil rouge utilise 2 parties: le code de la porte charniere et le porte de la telecommande. Il y a une dépendance fonctionnelle entre ces 2 concepts de modélisation en C. Mais les 2 modules les représentant(les headers) sont indépendants au sens où ils sont abstraites ; ils représentent un concept donc substituable par une autre implémentation équivalente sans pour autant adapter les autres implémentations de modules ou même le fichier test. Si on déclare la structure comme type incomplet dans les 2 fichiers on obtient une indépendance qui se traduit par le fait qu'une télécommande peut ouvrir des portes charnières mais son implémentation est indépendante de la structure même de la porte charnière ; on dit que ces 2 modules en C sont indépendants. C'est une indépendance donc par rapport aux changements du central la porte en header (type incomplet) par rapport à la télécommande qui la manipulera via des fonctionnalitées abstraites par la suite.
+OBJECTIFS DU COURS:
+BUT1: 
+->Changer la réalisation sans le modifier le code qui l'utilise(code client)
+cad. que le but de la POO en gros parmi l'un de ces buts c'est de pouvoir modifier la réalisation cad. modifier l'implémentation de la porte charnière ou de la structure de télécommande réèl sans pour autant perdre les fonctionnalitées mises en oeuvre(ouvrir une porte en fichier test(code client entre autres));etc...
+<=>Varier les implémentations sans impacter l'utilisateur
+=>Principe d'abstraction: propriete logicielle parlaquelle la partie privée d'un code est séparée de la partie publique(interface) ; il y aura plusieurs réalisations possibles selon le besoin
+=>on pourrait par là changer la réalisation d'un truc sans changer l'interface et sans impacter l'utilisateur qui choisira la bonne en fait il choisit l'interface à la compilation et à l'édition de liens la bonne implémentation.
+                                    COMMENT CELA PEUT SE FAIRE GENERALEMENT ?
+On a parlé d'abstraction qui consiste en la spécification de l'interface d'utilisation et du masquage des détails de réalisation. 
+PRINCIPE FONDAMENTALE ET RECURRENT: Séparer l'utilisation et la réalisation.
+=>méthodes ?
+-ENCAPSULATION: encapsuler des données ayant une certaine particularité dans une chose.
+En JSNODE, on avait des fonctions qui créer des fonctions qui donnent des nombres aléatoires. 
+EXEMPLE:
+let a=5;
+let b=10;
+function donner(heure){
+let c=(heure+b)/10;
+return c;
+}
+Cette fonction rend publique des données auquelle la fonction en as besoin, pour rendre ces données inacessibles par tout le monde, on va les faire rentrer dans la fonction et changer un peu:
+function donner(){
+let a=5; let b=10;
+function donner2(heure){
+return (heure+b)/a;
+}
+return donner2
+}
+ainsi let random_number=donner() est une fonction qui donne par évaluation un nombre aléatoire sans pour autant avoir l'accessibilité aux données paramétrées avant par l'utilisateur: a et b.
+On fait en quelque sorte de l'encapsulation pour masquer des informations ou diminuer le niveau de visibilité de celui qui executera le programme.
+=>Cette notion est une clef importante pour l'abstraction car l'encapsulation masque les détails de la réalisation en fait (on ne connait plus le a et le b qui en découle) .
+RESUME DU BUT1:
+->principe d'abstraction: changer la réalisation sans changer le code client(tests entre autres).
+->définir un interface utilisateur et faire de l'encapsulation pour un niveau de visibilité diminuée par un masquage d'information pour la réalisation ; ne pas rendre publiques certaines informations ; ce principe permet de séparer utilsiation (paramétrage) et réalisation(la fonction random_number en GROS à la fin) ce qui participe grandement à faire de l'abstraction(modifier la réalisation sans pour autant changer le code client) PAR ce qu'on vient de dire l'encapsulation<=>varier les implémentations sans impacter le code en entier via le code client bien sûr.
+A RETENIR:
+Abstraction: séparation réalisation et code client.
+Encapsulation: niveau de visibilité, accès aux données, permet l'abstraction via une spécification d'interface publique en diminution par rapport à l'origine et par cela varier les codes client par un parametrage ruse apres.
+But: Changer la réalisation sans changer le code qui l'utilise (disposer d'un grand nombre de réalisations(implémentations) via le masquage de la PORTEE par l'encapsulation). 
+CE QUI NOUS RAMENE AU BUT2:
+BUT2:
+En fait il y a 2 buts, les 2 principes évoqués avant ont été vus en prog. fonctionnelle lorsqu'on a parlé de modularité de code, des propriétées de portées de données au sein d'un code et des 2 principes la récursivité pour la transparence référentielle et la prog. fonctionnelle un peu pûre sans effets de bords par ce qu'on appelle:la persistance des données et la réutilisation et la représentation des données par des fonctions => développement web et prog. évenementielle... Mais ce n'est pas du tout le but de faire un comparat impératif avec. Le but ici principal est de mettre en oeuvre à part les techniques d'abstraction et d'encapsulation en C en JSNODE évoqués l'année dernière de faire une séparation du code client et de varier les utilisations (implémentations) donc:
+        AJOUTER DES REALISATIONS EN MODIFIANT SEULEMENT LA PARTIE DU CODE QUI LES CREE.
+cad. on pourrait ajouter des réalisations car on est dans une domaine d'abstraction tout en modifiant seulement et je dis seulement la partie spécifique du code qui les crée sans pour autant taper sur le code utilisateur qui peut être je dis peut être enrichi par ces nouvelles fonctionnalitées. 
+A RETENIR:
+But1: abstraction par changement de la réalisation sans modifier le code client ; l'encapsulation y participe car elle permet de faire un masquage d'information et par cela spécifier un interface réduit et par cela faire de l'abstraction mais cela va se faire TESTER par une variation de réalisations, but2.
+But2: Ajouter des réalisations en modificant seulement la partie du code qui les crée cad. ajouter de nouvelles fonctionnalitées dans un module sans pour autant changer l'entièrete du code qui l'utilise ou bien du code qui implémente cet interface (ce qui est syntaxiquement correct en C par exemple).
+REMARQUE:
+Séparer l'utilsiation des réalisations: définir un type général (ici Porte) déclarant les opérations utilisées par le client. Les réalisations(comme charniere) fournissent le code de ces opérations.
+=>Pour changer/substituer une réalisation par une auutre, il est plus pratique de faire cohabiter toutes ces réalisations dans un même exécutable. 
+A RETENIR:
+type général ; réalisations fournissant le code des opérations.
+cohabitation des toutes dans un meme executable.
+ajouter des realisations en modifiant la partie du code qui les cree.(ajouter un verrou implique ajouter les fonctionnalitées verrou dans les autres implémentations)
+ET IMPORTANT: tout cela POUR ABSTRACTION VIA ENCAPSULATION(portée de données) POUR UN OBJECTIF PRINCIPAL:
+         CHANGER LES REALISATIONS SANS MODIFIER LE CODE CLIENT.(principe du groupe)
+         <=>validation des tests par plusieurs implémentations différentes et un même interface figé
+         <=>Abstraction et Encapsulation pour limiter le code aux fonctionnalitées voulues et ne pas changer le code par ceci ou cela et impacter les réalisations soit foirer les tests parfois..///
+Rq: le changement d'une fonction peut indirectement impacter une autre ; la modif. de cette derniere dans une des realisations est permise par le but2 et n'impacte pas le code client restant inchangeant ici...
