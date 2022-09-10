@@ -1,0 +1,21 @@
+CHAPITRE1: L'encapsulation
+savoir ouvrir une porte en ayant acces aux proprietees ouvrir d'ou un objet porte avec une methode ouvrir<=>principe du createur de simula le premier language poo en 1972.
+DEF1. L'encapsulation en approche objet:
+TOUT SIMPLE:
+=>regrouper le code(données et traitements) qui fournit un même service dans une seule entité.
+=>Avec celle-ci, on va pouvoir spécifier le fonction d'un service SOIT par un ensemble d'actions en masquant la manière de le réaliser. C'est une forme d'abstraction.(via cette genre d'encapsulation) :;: (on fournit de l'abstraction via l'utilisation du service dans lequel l'utilisateur ne connait pas les méthodes fournies comment cela est fait par le programmeur).
+EXEMPLE: on n'a pas besoin d'indiquer sur quelles données d'applique une action.
+(principes des private et des méthodes et des mots clefs static, cela permet de faire de l'encapsulation qui est une forme dans la classe d'abstraction via non connaissance des données mais opérations possibles sur eux).
+<=>ENCAPSULATION<=>REPOND AU BUT DE LA POO.
+1.1.Objet:
+entite qui met en oeuvre l'encapsulation. 
+données à l'intérieur attributs ou variables d'instance.
+méthodes(traitements encapsulés).
+BUT: se limiter à des objets pas de données par ci par là ou des fonctions.
+Interaction ou faire quelque chose=>données et traitements chamboulées=>communication entre objets=>principe d'objet=>la POO.
+1.2.Classe:
+<=>type dans un language impératif ou fonctionnel.
+1.3.Description des encapsulation en JAVA:
+utilise les classes pour la description de l'encapsulation.
+FIN_partie_sur_les_objets_et_encapsulation.
+A retenir: en POO, seuls les classes soit les objets nous intéressent toute procédure fait appel à des données et des choses à faire soit à des objets qui sont des couples (attributs,méthodes). Une relation existe forcément.
