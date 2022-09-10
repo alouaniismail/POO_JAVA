@@ -1,0 +1,60 @@
+CHAPITRE2 : les objets
+Meme partie: Objets en encapsulation
+Def2. L'objet
+=>entité de base de l'execution.(exemple de la porte)
+LES EXECUTIONS PLUTOT dans une seule finale à la fin.
+Def2. identite d'un objet
+plusieurs instances<=>plusieurs instances mémoires.
+RESUME:
+UN language POO (jsnode en particulier, python(l'un de ses paradigmes)) doit fournir:
+l'instanciation
+passing messages
+assurer la separation utilisation/realisation par le : information-hidding.
+SUITE:
+1->En java, les variables/parametres correspondants a des objets sont des references. Ils contiennent l'adresse de l'objet.
+2->JVM de la machine virtuelle à l'execution fait le boulot du rammasse-miettes.
+3->Le nombre d'instances===Le nombre des new dans le code.
+4->sans le new, le variable est dite non referencee car on a pas l'affectation à UNE INSTANCE!!!
+5->Les char[] en C sont des instances de la classe String en JAVA.
+6->Les tableaux JAVA (int[] t; //en declaration par exemple) sont des objets avec des méthodes d'accés et un attribut length.
+IMPORTANT: ENVOI DE MESSAGE ET RESPECT DES L'INSTANCIATION DE L'ENCAPSULATION
+=>la notion d'envoi de messages (actions et parametres) cherche a abstraire la maniere dont est choisie l'action(cachee dans un objet (POO)). 
+=>La compilation ne peut pas vérifier l'écistence d'un message sur un objet car c'est au moment de l'éxecution que l'envoi des messages est réalisé. La seule vérification possible est par rapport au type de la variable au moment du javac (convertisseur en bytecode~compilation).
+2.3.Construire une encapsulation:
+2.3.1.Encapsulation et masquage d'information!
+principe de portée au niveau des données, fonctionnalitées attribuées à l'objet:
+-portée publique: public en dehors accessibilité oui par EXECUTION.
+-portée privée: l'identificateur est accessible uniquement par le code contenu dans la classe(private keyword java data no functions in class's declaration).
+Un acces depuis un objet ayant des attributs non pas des méthodes par une ecriture disons pointee pour pouvoir lire les infos d'un autre objet permet de dire que depuis un objet A une instruction rend une donnée publique => ~non respect de l'encapsulation. 
+=>POUR RESPECTER L'ENCAPSULATION et permettre aux données relatives à une classe d'être inacessibles pour éviter sinon la modification du type/le stockage de valeur ou non par le code client ; tous les attributs doivent être déclarés privés et seules les méthodes publiques bien sûr.
+2.3.2.Objet constant:
+Un objet est constant si son état ne peut pas être modifié soit avec l'encapsulation d'avant aucune de ses méthodes ne modifie son état (car les attributs sont privées tous). Dans l'API standard de JAVA, les instances String et StringBuffer.(comme exemple) Cette encapsulation des chaines constantes montre l'utilisation habituelle des objets constants en Java: le partage  d'objets.
+2.3.3.Communication entre objets:
+Un objet est passif.
+=>définition du lien a-un entre deux classes:
+Une classe P possède un lien a-un avec une classe R si elle définit un attribut de type R. Une instance de P possède dans ses attributs une instance de R.
+=>attention entre égalité d'objets et utilisation de la méthode equals().
+=>eviter un effet de bord via une methode via utilisation d'une méthode qui s'appelle clone.
+Rq:
+LE PASSAGE D'UN PAMARETRE OBJET SE FAIT EXCLUSIVEMENT PAR REFERENCE/ADRESSE.
+=>assert pas de package mais java -ea a l'execution(tournage du byte code dans la machine virtuelle ; le byte code contient trop de trucs...)..///
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+CHAPITRE3: les classes:
+RESUMONS: objets et encapsulation
+encapsulation
+objets
+et maintenant classes.///////
+Def1. Une classe
+=>module qui décrit le quoi: la spécification des messages qui peuvent être envoyés à l'objet et le comment ; la manière de réaliser cette spécification.
+=>La construction d'une classe se répartit en trois formes:
+1-Classe concrète: instanciable(le fichier est une classe qui contient le main ne peut pas etre insatncié)
+2-Classe abstraite: la réalisation est forcément incomplète, au moins une des méthodes d'instances n'a pas été mise en oeuvre (pas de corps défini) pour varier les modules sous-extraits.
+3-Classe Abstraite Pure ou Interface: aucune réalisation n'est définie, elle contient les déclarations des méthodes d'instance. 
+=>Ce chapitre se concentre sur les classes concrètes. (instances possibles)
+interface/abstract class avec l'interface pas de variables ou de methodes ou de constructeurs ou de methodes abstraites(sans corps).
+Une classe/interface(attention) JAVA correspond au fichier +.class(syntaxe flex).
+Paquetage(package)
+java.io
+javax.swing.border
+org.xml.sax
+java et javax sont des paquets gros FAISANT partie de la distribution standard (JRE et JDK).
+hiéarchie et pointage:
+->java.io.PrintWriter
+java.lang.String
+junit.textui.TestRunner
+junnit.swingui.TestRunner
+package Player;
+au debut de Player.java pour pouvoir faire import Player la classe/interface Player dans un autre fichier d'utilisation ou de tests(les incluant).
+Player contient la classe game qui contient la classe equipe => import Player.game.equipe et package Player.* pour ne pas utiliser Player mais Player.game.equipe le compilateur se fournit tout dans ce cas ci.
+String.class est dans java/lang.
+-cp(--classpath) ou la variable d'environnement CLASSPATH permet d'indiquer les répertoirs à analyser pour trouver le chemin.
+3.2.Classe concrete
+private/public(accessible si un appel a un acces a la classe)
+ET DERNIERE:
+pas de mot-cle: accessible pas classes du meme paquetage.
+package interface.first_part
+class one{}
+class two{}
+apres dans two il y a une méthode acces_test_3() alors celle ci est accessible seulement via un acces (appel) a une classe qui se trouve dans le meme fichier. 
+RAPPEL: println est une methode de la classe (overloading) : java.io.PrintStream.
+RAPPEL2: l'overloading(le surcharge) est résolu lors de la compilation.
+3.2.5.Constructeur:
+Pas une méthode=>initialisation des variables d'instances à l'APPEL.
+RAPPEL3: lien a-un correspond à la relation d'utilisation la plusbasique:la realisation d'une encapsulation necessite l'appel aux methodes d'une autre encapsulation. 
+3.3.1.Relation d'utilisation dans la realisation:
+3.3.2.Factoriser du code:
+RAPPEL: un objet appelle un objet si dans ses attributs on en retrouve une instance de l'appelé lien a-un entre les objets cest comme cela que transite les informations instructuves du programme.
+Pour eviter de DUPLIQUER LE CODE, la construction de la classe PorteVerrouCharniere peut se faire en utilisant un lien a-un avec la classe PorteCharniere, vu les memes proproetees presque en commun au lieu de refaire la meme chose on definit la classe PorteVerrouCharniere(c'est oblige) mais sans repeter les choses de porte charniere c'est ca la factorisation on va impliquer les methodes de porte charniere soit y avoir acces soit creer une instanciation dans les attributs prives de porte verrou charniere pour respecter l'encapsulation et apres utiliser les methodes de porte charniere pour enrichir la nouvelle classe par de nouvelles fonctionnalitées et un ferme() qui ferait rien retournera .portecharniere.ferme() (appel liaison a-un) ce qui est une non-perte du temps(principe de factorisation.
+RQ IMPORTANTE:
+declarer une classe statique permet son utilisation en dehors du main dans une classe fichier.class avant.///
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
