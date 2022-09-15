@@ -2,12 +2,12 @@ project: MainApp MainApp2 MainApp3 MainApp4 MainApp5 MainApp6 object project2
 project2: exemple1 exemple2 exemple3 exemple4 project3 project4 heritage
 project3: ex1 ex2 ex3 ex4 ex5 
 project4: exe6 test angle 
-heritage: main2 main3 main4 clean
+heritage: main2 main3 main4 main5 clean
 resume: resume0 resume1 resume2 resume3
 clean: clean2
 	rm -rf *.txt~ *.java~ Makefile~ *.class mypackage/*.class mypackage/*.java~
 clean2:
-	rm -rf others_heritage/*.java~ others_heritage/*.class paquets/*.class paquets/*.java~ paquets_autres/*.class paquets_autres/*.java~
+	rm -rf others_heritage/*.java~ others_heritage/*.class paquets/*.class paquets/*.java~ paquets_autres/*.class paquets_autres/*.java~ abstraits/*.java~ abstraits/*.class
 MainApp: MainApp.java
 	javac $< 
 	java $@
@@ -79,3 +79,5 @@ main3: main3.java paquets/*.java
 	javac $^ && java main3
 main4: main4.java paquets_autres/*.java
 	javac $^ && java main4
+main5: main5.java #sans les sous-classes qui importent (faits automatiquement)
+	javac $< && java $@
