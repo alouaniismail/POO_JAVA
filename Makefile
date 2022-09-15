@@ -2,12 +2,12 @@ project: MainApp MainApp2 MainApp3 MainApp4 MainApp5 MainApp6 object project2
 project2: exemple1 exemple2 exemple3 exemple4 project3 project4 heritage
 project3: ex1 ex2 ex3 ex4 ex5 
 project4: exe6 test angle 
-heritage: main2 clean
+heritage: main2 main3 main4 clean
 resume: resume0 resume1 resume2 resume3
 clean: clean2
 	rm -rf *.txt~ *.java~ Makefile~ *.class mypackage/*.class mypackage/*.java~
 clean2:
-	rm -rf others_heritage/*.java~ others_heritage/*.class
+	rm -rf others_heritage/*.java~ others_heritage/*.class paquets/*.class paquets/*.java~ paquets_autres/*.class paquets_autres/*.java~
 MainApp: MainApp.java
 	javac $< 
 	java $@
@@ -75,3 +75,7 @@ resume3: summary_objet_et_encapsulation4
 	cat $<
 main2: main2.java others_heritage/exemple1.java others_heritage/part1.java
 	javac $^ && java $@
+main3: main3.java paquets/*.java
+	javac $^ && java main3
+main4: main4.java paquets_autres/*.java
+	javac $^ && java main4
